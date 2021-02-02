@@ -82,13 +82,15 @@ button:hover{
 
 .button.cancel{
   color: var(--red);
-  border: 2px var(--red) solid;
+  border: 0.01px var(--red) solid;
   border-radius: 0.25rem;
-  height: 50px;
+  height: 49px;
   display: flex;
   align-items: center;
   justify-content:center;
   opacity: 0.6;
+  font-family: arial,sans-serif;
+  font-size: 15px;
   
   
 }
@@ -100,6 +102,7 @@ button:hover{
 
 /*Header */
 header{
+  
   background: #2d4a22;
   padding: 2rem 0 10rem;
   text-align: center;
@@ -108,13 +111,15 @@ header{
 #logo{
   color: #fff;
   font-weight: 100;
+  
 
 }
 
 /*Balance */
 
 #balance{
-  margin-top: -8rem;
+  margin-top: -10rem;
+
 }
 
 #balance h2{
@@ -124,10 +129,11 @@ header{
 
 /*Cards */
 .card{
+  margin-top: 20%;
   background: white;
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--dark-blue);
 }
 .card h3{
@@ -163,6 +169,7 @@ header{
   border-spacing: 0 0.5rem;
   color: #969cb3;
   
+  
 }
 table thead th:first-child,
 table tbody tr td:first-child {
@@ -185,6 +192,7 @@ table th{
   background: white;
   font-weight: normal;
   padding: 1rem 2rem;
+ 
 
 }
 
@@ -274,7 +282,7 @@ input{
 /*Footer */
 
 footer{
-  margin-top: 150px;
+  margin-top: 130px;
   text-align: center;
   padding: 4rem 0 2rem;
   color: var(--dark-blue);
