@@ -21,19 +21,16 @@ const Modal = {
 
 const transactions = [
   {
-    id: 1,
     description: 'Luz',
     amount: -50000,
     date: '23/01/2021'
   },
   {
-    id: 2,
     description: 'Freela',
-    amount: 10000,
+    amount: 1000000,
     date: '10/01/2021'
   },
   {
-    id: 3,
     description: 'Net',
     amount: -25000,
     date: '23/01/2021'
@@ -41,19 +38,46 @@ const transactions = [
 ]
 
 const Transaction = {
+  all: transactions,
+  add(transaction){
+    Transaction.all.push(transaction)
+    App.reload()
+  },
+
+  remove(index){
+    Transaction.all.splice(index,1)
+    App.reload()
+  },
+
   incomes() {
+    let income = 0;
     //pegar todas as transações
-    //verificar se é maior que zero
-    //se for maior que zero
-    //somar a uma variavel 
-    return "Cheguei"
+     //para cada transação 
+    Transaction.all.forEach(transaction =>{
+      //verificar se é maior que zero
+      if(transaction.amount > 0){
+          //somar a uma variavel 
+          income = income + transaction.amount;
+      }
+    })
+    return income;
   },
   expenses() {
-    return "aqui"
+    let expense = 0;
+    //pegar todas as transações
+     //para cada transação 
+     Transaction.all.forEach(transaction =>{
+      
+      if(transaction.amount < 0){
+         
+          expense += transaction.amount;
+      }
+    })
+    return expense;
   },
+
   total() {
-    //entradas - saidas
-    return "novamente"
+    return Transaction.incomes() + Transaction.expenses();
   }
 }
 
@@ -82,15 +106,20 @@ const DOM = {
   updateBalance(){
     document
     .getElementById('incomeDisplay')
-    .innerHTML = Transaction.incomes()
+    .innerHTML = Utils.formatCurrency(Transaction.incomes())
     document
     .getElementById('expenseDisplay')
-    .innerHTML = Transaction.expenses()
+    .innerHTML = Utils.formatCurrency(Transaction.expenses())
     document
     .getElementById('totalDisplay')
-    .innerHTML = Transaction.total()
+    .innerHTML = Utils.formatCurrency(Transaction.total())
+  },
+  //como estava duplicando os dados
+  clearTransactions(){
+    DOM.transactionsContainer.innerHTML = ""
   }
 }
+
 
 const Utils = {
   formatCurrency(value){
@@ -109,8 +138,19 @@ const Utils = {
   
 }
 
-transactions.forEach(function(transaction){
-  DOM.addTransaction(transaction)
-})
+const App = {
+  init() {
+    Transaction.all.forEach(transaction => {
+      DOM.addTransaction(transaction)
+    })
+    
+    DOM.updateBalance()
+     
+  },
+  reload() {
+    DOM.clearTransactions()
+    App.init()
+  },
+}
 
-DOM.updateBalance()
+App.init()
