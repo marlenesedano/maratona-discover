@@ -153,7 +153,7 @@ header{
 .card.total{
   background: var(--green);
   color: white;
-
+  
 }
 
 /*Table */
@@ -168,22 +168,34 @@ header{
   width: 100%;
   border-spacing: 0 0.5rem;
   color: #969cb3;
-  
-  
 }
+
 table thead th:first-child,
 table tbody tr td:first-child {
   border-radius: 0.25rem 0 0 0.25rem;
+  
 }
 
 table thead th:first-child,
 table tbody tr td:first-child {
   border-radius: 0 0.25rem 0.25rem 0;
+  
+}
+
+.expense_itens active{
+  background:#e79c9c;
+  color: black;
+}
+
+.itens{
+  align-items: center;
+  text-align: center;
 }
 
 table tbody tr{
   opacity: 0.7;
 }
+
 table tbody tr:hover{
   opacity: 1;
 }
@@ -193,7 +205,6 @@ table th{
   font-weight: normal;
   padding: 1rem 2rem;
  
-
 }
 
 table td{
@@ -243,11 +254,12 @@ td.expense{
 /*Form */
 #form{
   max-width: 500px;
+  
 
 }
 
 #form h2{
-  margin-top: 0;
+ margin-top: 0;
 }
 
 input{
