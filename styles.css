@@ -4,6 +4,11 @@
   --green: #49aa26;
   --light-green: #3dd705;
   --red: #e92929;
+   
+  --bg-panel: #EBEBEB;
+  --color-headings: #2d4a22;
+  --color-text: #080808;
+  --text: #3664FF;
 }
 
 *{
@@ -14,6 +19,7 @@
 
 html{
   font-size: 93.75% /*15px */
+  
 }
 
 body{
@@ -103,7 +109,7 @@ button:hover{
 /*Header */
 header{
   
-  background: #2d4a22;
+  background: var(--color-headings);
   padding: 2rem 0 10rem;
   text-align: center;
 }
@@ -182,10 +188,6 @@ table tbody tr td:first-child {
   
 }
 
-.expense_itens active{
-  background:#e79c9c;
-  color: black;
-}
 
 .itens{
   align-items: center;
@@ -312,4 +314,66 @@ footer{
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem; /*espaço entre os elementos*/
   }
+}
+
+/*Alter Mode */
+
+html {
+  --bg: #f3f5f1;
+  --bg-panel: #EBEBEB;
+  --color-headings: #0e0f0f;
+  --color-text: #333333;
+  
+}
+
+body {
+  background-color: var(--bg);
+}
+
+
+/*botao */
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: rgb(212, 209, 209);
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+label::after{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background-color: var(--color-headings);
+}
+
+ footer{
+  color: #49aa26;
+}
+
+input:checked + label::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 45px;
 }

@@ -55,6 +55,7 @@ const Transaction = {
       if (transaction.amount > 0) {
         //somar a uma variavel 
         income = income + transaction.amount;
+
       }
     })
     return income;
@@ -68,6 +69,10 @@ const Transaction = {
       if (transaction.amount < 0) {
 
         expense += transaction.amount;
+        const element = document.querySelector('.expense_itens')
+        element.classList.add('active')
+        //element.classList.remove('active')
+        element.classList.toggle('ative')
 
 
       }
@@ -235,3 +240,45 @@ const App = {
 }
 
 App.init()
+
+
+
+// Dark
+
+const html = document.querySelector("html")
+const checkbox = document.querySelector("input[name=theme]")
+
+const getStyle = (element, style) =>
+  window
+    .getComputedStyle(element)
+    .getPropertyValue(style)
+
+const initialColors = {
+  bg: getStyle(html, "--bg"),
+  colorHeadings: getStyle(html, "--color-headings"),
+  colorText: getStyle(html, "--color-text"),
+}
+
+const darkMode = {
+  bg: "#333333",
+  colorHeadings: "#080808",
+  colorText: "B5B5B5"
+}
+
+const transformKey = key =>
+  "--" + key.replace(/([A-Z])/, "-$1").toLowerCase()
+
+
+const changeColors = (colors) => {
+  Object.keys(colors).map(key => {
+
+    html.style.setProperty(transformKey(key), colors[key])
+  })
+}
+
+checkbox.addEventListener("change", ({ target }) => {
+  target.checked ? changeColors(darkMode) : changeColors(initialColors)
+})
+
+
+// Transição
