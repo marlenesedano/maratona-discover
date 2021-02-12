@@ -9,7 +9,7 @@ O final da Aplicação conforme a imagem a baixo.
           <img src="./assets/to_readme_1.png">
                                        </p>
                                        
-### maratona-discover
+### Adicionando modo Dark
 
 Para melhorar o aprendizado, por conta propria decidi adicionar opção modo dark, pegando as variaves do css pelo JavaScript.
 
