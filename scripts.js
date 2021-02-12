@@ -282,3 +282,5 @@ checkbox.addEventListener("change", ({ target }) => {
 
 
 // Transição
+
+let transition = document.querySelector('.card');
